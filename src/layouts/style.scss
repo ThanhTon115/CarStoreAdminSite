@@ -1,0 +1,32 @@
+.colapse-header {
+    left: 100px !important;
+    transition: 0.5s ease-in-out;
+    @media screen and (max-width: 666px) {
+        left: 30px !important;
+      }
+}
+.q-layout {
+    background-color: rgb(14, 18, 62);
+    .q-header {
+        transition: 0.5s ease-in-out;
+        background-color: rgb(14, 18, 62);
+        .q-toolbar {
+            background-color: #fff;
+            border-radius: 20px 0 0;
+            color: #000;
+        }
+    }
+    .q-page {
+        border-radius: 0 0 0 20px;
+        background-color: #fff;
+        &-container {
+            transition: 0.5s ease-in-out;
+            &.colapse-page {
+                padding-left: 100px !important;
+                @media screen and (max-width: 666px) {
+                    padding-left: 30px !important;
+                  }
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ import routes from './routes'
  * async/await or return a Promise which resolves
  * with the Router instance.
  */
-
+const isLogged = true;
 export default route(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
@@ -25,6 +25,13 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
   })
+
+  Router.beforeEach((to, from, next) => {
+    if (to.meta.auth) {
+      return isLogged ? next() : next("/login");
+    }
+    return next();
+  });
 
   return Router
 })

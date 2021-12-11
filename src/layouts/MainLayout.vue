@@ -1,112 +1,47 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <SideBarComponent :leftDrawerOpen="leftDrawerOpen" @isOpen="(value) => leftDrawerOpen = value"/>
+    <q-page-container :class="{'colapse-page' : !leftDrawerOpen}">
+      <q-header elevated :class="{'colapse-header' : !leftDrawerOpen}">
       <q-toolbar>
         <q-btn
           flat
           dense
           round
-          icon="menu"
+          :icon="leftDrawerOpen ? 'keyboard_double_arrow_left': 'keyboard_double_arrow_right'"
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
         <q-toolbar-title>
-          Quasar App
+          {{routeName ?? 'Admin site'}}
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-avatar round size="32px">
+          <img style="object-fit: cover" src="https://cdn.zenquiz.net/external/2016/05/22/12/10f287e0-2019-11e6-9fed-050901070303-compressed.jpg" />
+        </q-avatar>
       </q-toolbar>
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
+import SideBarComponent from 'components/side-bar/SideBarComponent.vue'
 
 import { defineComponent, ref } from 'vue'
+import './style.scss'
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    SideBarComponent
   },
 
   setup () {
     const leftDrawerOpen = ref(false)
 
     return {
-      essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value

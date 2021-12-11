@@ -1,0 +1,35 @@
+.q-drawer {
+  &--left{
+    border-right: 0 !important;
+    transition: 0.5s ease-in-out;
+  }
+  .avatar-section {
+    display: grid;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    line-height: 2rem;
+    .q-avatar {
+      justify-self: center;
+      margin-block: 20px;
+    }
+  }
+  &__content {
+    background-color: #0e123e;
+    transition: 0.5s ease-in-out;
+    .q-list {
+      .q-item {
+        color: #fff;
+        padding-left: 40px;
+        padding-block: 20px;
+      }
+    }
+  }
+  &--mini{
+    width: 100px !important;
+    transition: 0.5s ease-in-out;
+    @media screen and (max-width: 666px) {
+      margin-left: -70px;
+    }
+  }
+}

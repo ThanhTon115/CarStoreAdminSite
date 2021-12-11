@@ -1,0 +1,36 @@
+.chart-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    canvas {
+        width: 100% !important;
+    }
+}
+.statistic-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    transition: 0.5s ease-in-out;
+    .summary-card{
+        background-color: blueviolet;
+        width: 30%;
+        max-width: 210px;
+    }
+    .best-seller {
+        transition: 0.24s ease-in-out;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .q-card {
+            margin: 20px;
+        }
+        img {
+            height: 160px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        display: grid;
+        
+    }
+}
