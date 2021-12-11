@@ -1,36 +1,59 @@
-.chart-group {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 20px;
-    canvas {
-        width: 100% !important;
-    }
-}
-.statistic-group {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    transition: 0.5s ease-in-out;
-    .summary-card{
-        background-color: blueviolet;
-        width: 30%;
-        max-width: 210px;
-    }
-    .best-seller {
-        transition: 0.24s ease-in-out;
+.statistic-container {
+    padding: 10%;
+    .chart-group {
         display: flex;
+        // flex-wrap: wrap;
         justify-content: space-around;
-        flex-wrap: wrap;
-        .q-card {
-            margin: 20px;
+        width: 100%;
+        padding: 20px;
+        canvas {
+            width: 100% !important;
         }
-        img {
-            height: 160px;
+        &__item {
+            box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%);
+            border-radius: 4px;
+            vertical-align: top;
+            background: #fff;
+            position: relative;
+            padding: 20px;
+            width: 100%;
+            margin-inline: 12px;
         }
     }
-    @media screen and (max-width: 1200px) {
-        display: grid;
-        
+    .statistic-group {
+        width: 100%;
+        .summary{
+            &-group {
+                // display: flex;
+            }
+            &-card{
+                background: linear-gradient(to right, rgb(121, 86, 236), rgb(47, 185, 248));
+                width: 30%;
+                max-width: 240px;
+                min-width: 190px;
+                border-radius: 6px;
+                margin: 12px;
+                height: 150px;
+            }
+        }
+        .top-choice-list {
+            transition: 0.24s ease-in-out;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .q-card {
+                margin: 12px;
+            }
+            img {
+                object-fit: contain;
+                height: 230px;
+                width: 290px;
+                padding: 20px;
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            display: grid;
+            
+        }
     }
 }

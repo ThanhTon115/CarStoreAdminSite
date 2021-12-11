@@ -3,7 +3,7 @@
   :mini="!item"
   show-if-above bordered
   :width="300"
-  :breakpoint="500">
+  :breakpoint="10">
   <q-item class="avatar-section">
     <q-avatar round size="60px">
       <img style="object-fit: cover" src="https://cdn.zenquiz.net/external/2016/05/22/12/10f287e0-2019-11e6-9fed-050901070303-compressed.jpg" />
